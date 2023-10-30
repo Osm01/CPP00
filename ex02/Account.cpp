@@ -14,6 +14,8 @@ Account::Account(){}
 Account::Account(int initial_deposit)
 {
 	this->_amount = initial_deposit;
+	this->_nbDeposits = 0;
+	this->_nbWithdrawals = 0;
 	this->_accountIndex = _nbAccounts;
 	Account:: _displayTimestamp();
 	std::cout << " " << "index:" << _accountIndex;

@@ -11,6 +11,20 @@ void	printMenu()
 	std::cout << "+----------------------------------+" << RESET <<std::endl;
 }
 
+bool	containsOnlyTabsOrSpaces(std::string &str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != '\t' && str[i] != ' ')
+			return (false);
+		i ++;
+	}
+	return (true);
+}
+
 void	user_prompt(std::string &user_input)
 {
 	std::cout << BLUE << "+----------------------------------+" << std::endl;
@@ -49,6 +63,12 @@ int	add_contact(PhoneBook &phoneBook, int current_index)
 		std::cout << RED << "Empty output not accepted !!" << RESET << std::endl;
 		return (0);
 	}
+	if (containsOnlyTabsOrSpaces(phone_number) || containsOnlyTabsOrSpaces(first_name) || containsOnlyTabsOrSpaces(last_name) \
+	|| containsOnlyTabsOrSpaces(nick_name) || containsOnlyTabsOrSpaces(dark_s))
+	{
+		std::cout << RED << "Only tabs or space are not accepted !!" << RESET << std::endl;
+		return (0);
+	}
 	contact = Contact(phone_number, first_name, last_name, nick_name, dark_s);
 	phoneBook.set_contacts(current_index, contact);
 	std::cout << GREEN << "The contact was added to phone Book" << "\033[0m" << std::endl;
@@ -58,7 +78,7 @@ int	add_contact(PhoneBook &phoneBook, int current_index)
 void	display_contacts(PhoneBook phoneBook, int nb_contact)
 {
 	Contact	*contact;
-	int	i;
+	int		i;
 
 	i = 0;
 
@@ -149,7 +169,7 @@ void	search_contact(PhoneBook phoneBook, int current_contact)
 			std::cout << RED << "NO EMPTY DATA ACCEPTED !!!" << RESET << std::endl;
 	}
 }
-#define aaaa 5
+
 int	main()
 {
 	std::string	user_input;
@@ -184,5 +204,3 @@ int	main()
 	}
 	return (0);
 }
-
-// STILL problems check for empty prompt and display when searching by index (display all data)

@@ -18,4 +18,3 @@ int	ft_stoi(std::string str)
 	return (value);
 }
 
-

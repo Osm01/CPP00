@@ -1,6 +1,6 @@
 NAME = Account
 
-CPP_COMPI = g++ -std=c++98
+CPP_COMPI = c++ -std=c++98
 ERRORS = -Wall -Wextra -Werror
 
 SRC = tests.cpp Account.cpp

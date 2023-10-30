@@ -1,6 +1,6 @@
 NAME = phonebook
 
-CPP_ERROR = #-Wall -Wextra -Werror
+CPP_ERROR = -Wall -Wextra -Werror
 CPP_FLAG_COMPI = -std=c++98
 
 SRC = main.cpp ft_stoi.cpp Contact.cpp PhoneBook.cpp

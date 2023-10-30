@@ -1,8 +1,10 @@
-#include <iostream>
+# include <iostream>
+
+# define RED "\033[31m"
+# define RESET "\033[0m"
 
 int main(int argc, char const *argv[])
 {
-	char	c;
 	int		i;
 	int		y;
 
@@ -13,18 +15,12 @@ int main(int argc, char const *argv[])
 		{
 			y = 0;
 			while (argv[i][y])
-			{
-				c = argv[i][y];
-				if (c >= 'a' && c <= 'z')
-					c = c - 32;
-				std::cout << c;
-				y ++;
-			}
+				std::cout <<  (char)toupper(argv[i][y ++]);
 			i ++;
 		}
 		std::cout << std::endl;
 	}
 	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		std::cout << RED << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << RESET << std::endl;
 	return (0);
 }
